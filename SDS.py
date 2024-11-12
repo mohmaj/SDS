@@ -5,7 +5,7 @@ model = 'sds'
 N = 10; maxIter = 30
 
 # INITIALISE AGENTS
-hypo = np.random.randint(len(ss)-len(model), size=(N)); 
+hypo = np.random.randint(len(ss)-len(model)-1, size=(N)); 
 status = np.zeros((N), dtype=bool)
 
 for itr in range (maxIter):
@@ -27,7 +27,7 @@ for itr in range (maxIter):
 			if status[rand] == True: # SHARE HYPOTHESIS
 				hypo[i] = hypo[rand]; 
 			else: # PICK A RANDOM HYPOTHSIS
-				hypo[i] = np.random.randint(len(ss)-len(model))
+				hypo[i] = np.random.randint(len(ss)-len(model)-1)
 		else: # ACTIVE AGENT
 			microFeature = np.random.randint(len(model)) # PICK MICROFEATURE
 			if ss[ hypo[i]+microFeature ] == model[microFeature]:
